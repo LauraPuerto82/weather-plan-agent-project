@@ -1,3 +1,4 @@
 langchain.tools
 langchain-google-genai
 python-dotenv
+streamlit
