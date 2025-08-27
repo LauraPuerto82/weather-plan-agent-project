@@ -16,7 +16,7 @@ llm = ChatGoogleGenerativeAI(
     temperature=0.3,
 )
 
-with open("prompts/system.txt", "r") as file:
+with open("prompts/system.txt", "r", encoding="utf-8") as file:
     system_prompt = file.read()
 
 prompt = ChatPromptTemplate([
