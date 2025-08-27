@@ -16,11 +16,8 @@ llm = ChatGoogleGenerativeAI(
     temperature=0.3,
 )
 
-
-system_prompt = """
-You are an assistant that helps plan the day according to the weather.
-You can suggest activities and a list of things to bring.
-"""
+with open("prompts/system.txt", "r") as file:
+    system_prompt = file.read()
 
 prompt = ChatPromptTemplate([
     ("system", system_prompt),
