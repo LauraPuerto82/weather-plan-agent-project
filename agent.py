@@ -27,4 +27,9 @@ prompt = ChatPromptTemplate([
 ])
 
 agent = create_openai_tools_agent(llm, tools, prompt)
-agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=False)
+agent_executor = AgentExecutor(
+    agent=agent,
+    tools=tools,
+    verbose=False,
+    return_intermediate_steps=True
+)
