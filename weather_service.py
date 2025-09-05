@@ -57,3 +57,27 @@ def get_current(city: str) -> dict:
         "rain_mm": rain.get("1h") or rain.get("3h") or 0.0,
         "snow_mm": snow.get("1h") or snow.get("3h") or 0.0,
     }
+
+def get_forecast(city: str, days: int) -> list[dict]:
+    """
+    Return simplified 3-hour forecast blocks for the next N days (1–5).
+
+    Output:
+      [
+        {"dt_txt": "2025-09-05 12:00:00", "temp": 23.5, "sky": "Clouds"},
+        ...
+      ]
+    """
+    days = max(1, min(days, 5))
+    data = _ow_request(BASE_FORE, {"q": city})
+    blocks = (data.get("list") or [])[: days * 8]  # 8 blocks of 3h per day
+    out = []
+    for b in blocks:
+        main = b.get("main", {})
+        w = (b.get("weather") or [{}])[0]
+        out.append({
+            "dt_txt": b.get("dt_txt"),
+            "temp": main.get("temp"),
+            "sky": w.get("main"),  # Clear | Clouds | Rain | Snow | ...
+        })
+    return out
