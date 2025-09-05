@@ -2,9 +2,9 @@
 python-dotenv>=1.0.0
 
 # LLM + agent
-langchain>=0.2.12,<0.4
-langchain-google-genai>=0.1.0,<0.2
-google-generativeai>=0.8.0,<0.9
+langchain>=0.2.16,<0.3
+langchain-google-genai>=1.0.0,<2.0
+google-generativeai>=0.7.0,<1.0
 
 # UI
 streamlit>=1.40.0,<2.0

@@ -1,17 +1,15 @@
-import os
-from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.agents import create_openai_tools_agent, AgentExecutor
 from tools import get_weather
 from langchain_google_genai import ChatGoogleGenerativeAI
+from config import get_gemini_api_key
 
-load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_API_KEY = get_gemini_api_key()
 
 tools = [get_weather]
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash",
+    model="gemini-1.5-flash",
     google_api_key=GEMINI_API_KEY,
     temperature=0.3,
 )
