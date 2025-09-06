@@ -1,4 +1,4 @@
-# Weather→Plan Agent
+# Weather->Plan Agent
 
 An intelligent AI agent that creates personalized day plans based on real-time weather conditions. Built with LangChain and powered by Google's Gemini AI, it combines live weather data with smart planning to suggest weather-appropriate activities, safety checklists, and practical tips.
 

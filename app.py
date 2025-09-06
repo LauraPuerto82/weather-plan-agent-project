@@ -4,7 +4,7 @@ from ui.styles import inject_global_css
 from ui.panels import render_headers, render_chat_panel, render_forecast_panel, render_chat_input
 
 # Page config
-st.set_page_config(page_title="Weather→Plan Agent", page_icon="🌤️", layout="wide")
+st.set_page_config(page_title="Weather->Plan Agent", page_icon="🌤️", layout="wide")
 
 # CSS
 inject_global_css()
@@ -36,9 +36,9 @@ render_chat_input(agent_executor)
 with st.sidebar:
     st.header("ℹ️ How it works")
     st.markdown("""
-1. **Ask for a plan** — e.g. “Plan my day in Paris” or “What should I do in Tokyo today?”
-2. **Weather tool call** — The agent fetches real-time weather (current conditions).
-3. **Grounded plan** — You get a personalized plan, plus a forecast visualization to justify the recommendations.
+1. **Ask for a plan** - e.g. "Plan my day in Paris" or "What should I do in Tokyo today?"
+2. **Weather tool call** - The agent fetches real-time weather (current conditions).
+3. **Grounded plan** - You get a personalized plan, plus a forecast visualization to justify the recommendations.
     """)
     st.header("💡 Example queries")
     st.markdown("""

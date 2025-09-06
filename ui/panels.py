@@ -11,7 +11,7 @@ from utils import (
 def render_headers():
     left, right = st.columns([1, 1], gap="large")
     with left:
-        st.title("🌤️ Weather→Plan Agent")
+        st.title("🌤️ Weather->Plan Agent")
     with right:
         st.title("📊 Forecast")
 
@@ -73,7 +73,7 @@ def render_forecast_panel():
                 dates = [x["dt_txt"] for x in data]
                 temps = [x["temp"] for x in data]
                 fig = px.line(x=dates, y=temps,
-                              labels={"x": "Date", "y": "Temp (°C)"},
+                              labels={"x": "Date", "y": "Temp (C)"},
                               title="3-hour forecast")
                 st.plotly_chart(fig, width="stretch")
             else:
@@ -92,7 +92,7 @@ def render_forecast_panel():
                             )
                         dt_txt = block.get("dt_txt") or ""
                         label = dt_txt.split(" ")[-1][:5] if " " in dt_txt else dt_txt
-                        st.caption(label if label else "—")
+                        st.caption(label if label else "-")
     else:
         # keep the card clean until a city is available
         st.markdown("<div style='height: 8px;'></div>", unsafe_allow_html=True)

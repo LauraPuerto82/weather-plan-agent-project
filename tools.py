@@ -17,9 +17,9 @@ def get_weather(city: str) -> dict:
             "temp_c": float,       # Temperature in Celsius
             "feels_like_c": float, # Perceived temperature in Celsius
             "wind_kmh": float,     # Wind speed in km/h
-            "humidity": int,       # Humidity percentage (0–100)
-            "rain_mm": float,      # Rain volume (mm, last 1–3h)
-            "snow_mm": float       # Snow volume (mm, last 1–3h)
+            "humidity": int,       # Humidity percentage (0-100)
+            "rain_mm": float,      # Rain volume (mm, last 1-3h)
+            "snow_mm": float       # Snow volume (mm, last 1-3h)
         }
 
     Notes:

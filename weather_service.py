@@ -1,10 +1,7 @@
-import os
 import requests
-from dotenv import load_dotenv
+from config import get_openweather_api_key
 
-load_dotenv()
-
-OPENWEATHER_KEY = os.getenv("OPENWEATHER_API_KEY")
+OPENWEATHER_KEY = get_openweather_api_key()
 BASE_CURR = "https://api.openweathermap.org/data/2.5/weather"
 BASE_FORE = "https://api.openweathermap.org/data/2.5/forecast"
 TIMEOUT = 15
@@ -44,7 +41,7 @@ def get_current(city: str) -> dict:
     rain = data.get("rain") or {}
     snow = data.get("snow") or {}
 
-    wind_kmh = round((wind.get("speed") or 0.0) * 3.6, 1)  # m/s → km/h
+    wind_kmh = round((wind.get("speed") or 0.0) * 3.6, 1)  # m/s to km/h
 
     return {
         "city": data.get("name", city),
@@ -60,7 +57,7 @@ def get_current(city: str) -> dict:
 
 def get_forecast(city: str, days: int) -> list[dict]:
     """
-    Return simplified 3-hour forecast blocks for the next N days (1–5).
+    Return simplified 3-hour forecast blocks for the next N days (1-5).
 
     Output:
       [

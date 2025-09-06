@@ -17,7 +17,7 @@ def lc_history_from_session(messages):
 
 @st.cache_data(ttl=300)
 def fetch_forecast_cached(city: str, days: int):
-    """Cached forecast (3-hour blocks, 1–5 days)."""
+    """Cached forecast (3-hour blocks, 1-5 days)."""
     return get_forecast(city, days)
 
 def update_last_city_from_steps(result: dict):
