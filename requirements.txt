@@ -1,18 +1,26 @@
+# Core LangChain
 langchain==0.3.27
 langchain-core==0.3.75
 langchain-community==0.3.28
 langchain-google-genai==2.0.10
+
+# Google AI
 google-generativeai==0.8.5
 google-ai-generativelanguage==0.6.15
+google-api-core==2.25.1
 
+# Web Interface
 streamlit==1.49.0
 plotly==6.3.0
 
+# HTTP & Environment
 requests==2.32.5
 python-dotenv==1.1.1
+
+# Data Processing
 pandas==2.3.2
 
+# Dependencies
 grpcio==1.74.0
-google-api-core==2.25.1
 protobuf==5.29.5
 tenacity==9.1.2
