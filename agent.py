@@ -1,5 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.agents import create_openai_tools_agent, AgentExecutor
+from pydantic import SecretStr
 from tools import get_weather
 from langchain_google_genai import ChatGoogleGenerativeAI
 from config import get_gemini_api_key
@@ -9,8 +10,8 @@ GEMINI_API_KEY = get_gemini_api_key()
 tools = [get_weather]
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
-    google_api_key=GEMINI_API_KEY,
+    model="gemini-2.5-flash",
+    api_key=SecretStr(GEMINI_API_KEY) if GEMINI_API_KEY else None,
     temperature=0.3,
 )
 
