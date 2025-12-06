@@ -1,5 +1,5 @@
 import streamlit as st
-from agent import agent_executor
+from agent import agent
 from ui.styles import inject_global_css
 from ui.panels import render_headers, render_chat_panel, render_forecast_panel, render_chat_input
 
@@ -25,12 +25,12 @@ render_headers()
 # Two equal columns (left chat, right forecast)
 col_chat, col_viz = st.columns([1, 1], gap="large")
 with col_chat:
-    render_chat_panel(agent_executor)
+    render_chat_panel()
 with col_viz:
     render_forecast_panel()
 
 # Global chat input (separated from the chat card)
-render_chat_input(agent_executor)
+render_chat_input(agent)
 
 # Sidebar (static help + reset)
 with st.sidebar:
@@ -51,4 +51,6 @@ with st.sidebar:
     if st.button("🗑️ Clear Chat"):
         st.session_state.messages = []
         st.session_state.last_city = None
+        st.session_state.viz_days = 2
+        st.session_state.viz_mode = "Sky"
         st.rerun()

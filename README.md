@@ -10,13 +10,14 @@ Built with **LangChain** and powered by **Google's Gemini AI**, it combines live
 
 ## ✨ Features
 
-- **Real-time Weather Integration** – Fetches live weather data via OpenWeather API  
-- **Intelligent Planning** – Generates personalized morning/afternoon/evening plans  
-- **Weather-Aware Suggestions** – Recommends indoor/outdoor activities based on conditions  
-- **Safety Checklists** – Provides clothing, accessories, and precaution recommendations  
-- **Kid-Friendly Mode** – Special planning considerations for families with children  
-- **Multi-language Support** – Responds in the user’s preferred language  
-- **General Knowledge** – Can also answer questions about places, concepts, and topics  
+- **Real-time Weather Integration** – Fetches live weather data via OpenWeather API
+- **Auto Location Detection** – Automatically detects your location when no city is specified
+- **Intelligent Planning** – Generates personalized morning/afternoon/evening plans
+- **Weather-Aware Suggestions** – Recommends indoor/outdoor activities based on conditions
+- **Safety Checklists** – Provides clothing, accessories, and precaution recommendations
+- **Kid-Friendly Mode** – Special planning considerations for families with children
+- **Multi-language Support** – Responds in the user's preferred language
+- **General Knowledge** – Can also answer questions about places, concepts, and topics
 - **Streamlit Web Interface** – Clean, responsive, and mobile-friendly UI  
 
 ---
@@ -24,11 +25,11 @@ Built with **LangChain** and powered by **Google's Gemini AI**, it combines live
 ## 🏗️ Architecture
 
 - **`app.py`** – Streamlit web interface with chat and forecast visualization
-- **`agent.py`** – LangChain ReAct agent with Gemini AI integration and tool management  
-- **`tools.py`** – Weather API integration with OpenWeather (wrapped as LangChain tool)
+- **`agent.py`** – LangChain 1.0 agent with Gemini AI integration and tool management
+- **`tools.py`** – Weather API and location detection tools (weather + geolocation)
 - **`weather_service.py`** – Low-level functions for current weather and forecast data
 - **`config.py`** – Environment-agnostic API key management (local + cloud)
-- **`prompts/system.txt`** – System prompt with decision logic for planning
+- **`prompts/system.txt`** – System prompt with intelligent decision logic
 - **`ui/`** – Modular UI components (panels, styles)  
 
 ---
@@ -77,20 +78,22 @@ streamlit run app.py
 
 ## 💡 Usage Examples
 
-- **Weather Planning**: *"Plan my day in Barcelona"*  
-- **Family Planning**: *"I'm going to Paris with kids, plan our day"*  
-- **General Knowledge**: *"Tell me about the Eiffel Tower"*  
+- **Weather Planning**: *"Plan my day in Barcelona"*
+- **Auto Location**: *"Plan my day"* (detects your location automatically)
+- **Family Planning**: *"I'm going to Paris with kids, plan our day"*
+- **General Knowledge**: *"Tell me about the Eiffel Tower"*
 - **Combined Requests**: *"What is Central Park and plan my day in New York"*  
 
 ---
 
 ## 🔧 Technical Highlights
 
-- **LangChain Framework** – Modern AI agent architecture  
-- **Gemini LLM Integration** – Tool-calling and reasoning with Google's generative models  
-- **Real-time API Integration** – Live weather data processing via OpenWeather  
-- **Error Handling** – Robust API failure management  
-- **Session Management** – Persistent chat history with Streamlit session state  
+- **LangChain 1.0** – Built with the latest LangChain framework and LangGraph runtime
+- **Gemini 2.5 Flash** – Tool-calling and reasoning with Google's latest generative model
+- **Dual-Tool System** – Weather API + IP-based geolocation for seamless UX
+- **Real-time API Integration** – Live weather data processing via OpenWeather
+- **Error Handling** – Robust API failure management
+- **Session Management** – Persistent chat history with Streamlit session state
 - **Responsive Visualization** – Interactive forecast charts with Plotly  
 
 ---
