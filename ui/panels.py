@@ -39,6 +39,10 @@ def render_chat_input(agent):
 
     # call agent
     with st.spinner("Planning your perfect day..."):
+        # Set coordinates globally so get_location() can access them from agent threads
+        from tools import set_user_coordinates
+        set_user_coordinates(st.session_state.get("coords"))
+
         # LangChain 1.0 create_agent uses messages key
         result = agent.invoke({"messages": history + [HumanMessage(content=prompt)]})
 
